@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <title>Learn University</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+            .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+            .fa-anchor,.fa-coffee {font-size:200px}
+        </style>
+    </head>
+
+
+    <body>
+        <!--Navigation Bar for Courses: Success-->
+        <div class="w3-top">
+            <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a> <!--links to self-->
+            <a href="courses.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Course Catalog</a>
+            <a href="enroll.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Enroll</a>
+            </div>
+            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+                <a href="courses.html" class="w3-bar-item w3-button w3-padding-large">Course Catalog</a>
+                <a href="enroll.html" class="w3-bar-item w3-button w3-padding-large">Enroll</a>
+            </div>
+        </div>
+        <!-- Header: Success -->
+        <header class="w3-container w3-blue w3-center" style="padding:128px 16px">
+            <img class = "img-responsive" src="img\logo.jpg" height="200" width="200"></img>
+            <h1 class="w3-margin w3-jumbo">LearnYou</h1>
+            <p class="w3-xlarge">Finish Your Degree With Confidence!</p>
+            <!--Link this button to the List of Courses-->
+        </header>
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-left">
+                <!--semester choices-->
+                    <h1>Course Enrollment</h1>
+                    <h5 class="w3-padding-32">Please select the semester:</h5>
+                    <input type="radio" name="sem" id="sem_fa" value="Fall 2018">Fall 2018</input>
+                    <p></p>
+                    <input type="radio" name="sem" id="sem_sp" value="Spring 2018" />Spring 2018</input>
+                <!--level of education choices-->
+                    <h5 class="w3-padding-32">Please select the level of education:</h5>
+                    <input type="radio" name="edu" id="undg" value="Undergraduate">Undergraduate</input>
+                    <p></p>
+                    <input type="radio" name="edu" id="grad" value="Graduate" />Graduate</input>
+                    <p></p>
+                    <input type="radio" name="edu" id="prof" value="Professional" />Professional</input>
+                    <p></p>
+                    <!--<input type="button" value="View Available Courses"onclick="showCourses()"></form> </input>-->
+                    <button onclick="showCourses()" class="w3-button w3-blue">View Available Courses</button>
+                    <h5 class="w3-text-grey">Available Courses:</h5>
+                    <p id = "coursesShown"></p>
+
+                <!--checkboxes for enrollment-->
+                    <h5 class="w3-text-grey">Please Select Courses for Enrollment:</h5>
+                    <input type = "checkbox" name="sel" id="cs410" value="cs410"> CS 410</input><br>
+                    <input type = "checkbox" name="sel" id="cs400" value="cs400"> CS 400</input><br>
+                    <input type = "checkbox" name="sel" id="cs5521" value="cs5521"> CS 5521</input><br>
+                    <input type = "checkbox" name="sel" id="cs6223" value="cs6223"> CS 6223</input><br>
+                    <input type = "checkbox" name="sel" id="engl210" value=" engl210"> ENGL 210</input><br>
+                    <input type = "checkbox" name="sel" id="engl6782" value="engl6782"> ENGL 6782</input><br>
+                    <input type = "checkbox" name="sel" id="math325" value="math325"> MATH 325</input><br>
+                    <input type = "checkbox" name="sel" id="math300" value="math300"> MATH 300</input><br>
+                    <input type = "checkbox" name="sel" id="math5551" value="math5551"> MATH 5551</input><br>
+                    <input type = "checkbox" name="sel" id="lw5671" value="lw5671"> LW 5671</input><br>
+                    <input type = "checkbox" name="sel" id="lw6543" value="lw6543"> LW 6543</input><br>
+                    <!-- Trigger/Open the Modal -->
+                    <button onclick= "document.getElementById('successMsg').style.display='block'; enroll()" class="w3-button w3-blue">Confirm Enrollment</button>
+                    <!-- The Modal -->
+                    <div id="successMsg" class="w3-modal">
+                        <div class="w3-modal-content">
+                            <div class="w3-container">
+                        <span onclick="document.getElementById('successMsg').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                                <p>CONGRATS! You are enrolled in the following courses:</p>
+                                <p id = "classes"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+        <!-- Footer: Success - shows who created what and accurately cites where I got most of my help -->
+        <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+            <h1 class="w3-margin w3-xlarge">Learn University</h1>
+            <p>Created for Project 1</p>
+            <p>By Johnathan Johnson </p>
+            <p>with help from w3schools</p>
+        </div>
+        <!-- Footer: Success - social media icons are just for show and do not have a function-->
+        <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+        <script src="js/main.js"></script>
+        <script>
+            // Used to toggle the menu on small screens when clicking on the menu button
+            function myFunction() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+        </script>
+
+
+    </body>
+</html>
